@@ -7,18 +7,57 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	
+	@NotNull
+	@Size(max=25)
+	@NotBlank(message = "firstName is mandatory")
+	@NotEmpty
 	private String firstname;
+	
+	
+	
+	
+	@NotNull
+	@Size(max=25)
+	@NotBlank(message = "lastName is mandatory")
+	@NotEmpty
 	private String lastname;
+	
+	
+	@NotNull
 	private Integer age;
+	
+	
+	
+	@NotNull
+	@Size(max=25)
 	private String housenumber;
+	
+	
+	@NotNull
+	@Size(max=25)
 	private String street;
+	
+	
+	
+	@NotNull
+	@Size(max=25)
 	private String city;
+	
+	
+	@NotNull
+	@Size(max=25)
 	private String pin;
 
 	@OneToOne(cascade = CascadeType.ALL)

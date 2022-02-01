@@ -5,14 +5,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Mobile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	
+	@NotNull
+	@Size(max=10)
+	@NotBlank(message = "mandatory")
 	private String contact1;
+	
+	
+	@NotNull
+	@Size(max=10)
 	private String contact2;
+	
+	
+	
+	@NotNull
+	@Size(max=10)
 	private String contact3;
 	@OneToOne(mappedBy ="mobile")
 	Contact contact;
